@@ -19,8 +19,7 @@ interface SearchPanelProps {
 }
 
 // react 组件 先找状态 ， 需要一个项目名，负责人的id
-export const SearchPanel = ({ param, setParam ,users}: SearchPanelProps) => {
-
+export const SearchPanel = ({ param, setParam, users }: SearchPanelProps) => {
   return (
     <form>
       <input

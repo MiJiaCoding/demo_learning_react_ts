@@ -4,7 +4,8 @@ const apiUrl = process.env.REACT_APP_API_URL;
 export const LoginScreen = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const username = (event.currentTarget.elements[0] as HTMLInputElement).value //as HTMLInputElement:不加会报错类型“Element”上不存在属性“value”。
+    const username = (event.currentTarget.elements[0] as HTMLInputElement)
+      .value; //as HTMLInputElement:不加会报错类型“Element”上不存在属性“value”。
   };
   fetch(`${apiUrl}/login}`, {
     method: "POST",
