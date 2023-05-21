@@ -20,8 +20,10 @@ export const ProjectList = () => {
 
   useEffect(() => {
     fetch(
-      `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
-      // ` http://localhost:3001/projects?${qs.stringify(cleanObject(debouncedParam))}`
+      // `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
+      ` http://localhost:3001/projects?${qs.stringify(
+        cleanObject(debouncedParam)
+      )}`
     ).then(async (response) => {
       if (response.ok) {
         setList(await response.json());
@@ -30,7 +32,10 @@ export const ProjectList = () => {
   }, [debouncedParam]);
 
   useMount(() => {
-    fetch(`${apiUrl}/users`).then(async (response) => {
+    fetch(
+      `${apiUrl}/users`
+      // ` http://localhost:3001/users}`
+    ).then(async (response) => {
       if (response.ok) {
         setUsers(await response.json());
       }
