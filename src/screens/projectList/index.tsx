@@ -7,6 +7,8 @@ import { cleanObject, useDebounce, useMount } from "../../utils";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 // console.log(apiUrl);
+// console.log(process.env)
+// console.log('process.env.NODE_ENV',process.env.NODE_ENV)
 
 export const ProjectList = () => {
   const [param, setParam] = useState({
@@ -20,10 +22,10 @@ export const ProjectList = () => {
 
   useEffect(() => {
     fetch(
-      // `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
-      ` http://localhost:3001/projects?${qs.stringify(
-        cleanObject(debouncedParam)
-      )}`
+      `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
+      // ` http://localhost:3001/projects?${qs.stringify(
+      //   cleanObject(debouncedParam)
+      // )}`
     ).then(async (response) => {
       if (response.ok) {
         setList(await response.json());
