@@ -4,26 +4,26 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { loadDevTools } from "jira-dev-tool";
-
-loadDevTools(() =>
-  ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById("root")
-  )
-);
-
-// loadDevTools(() => {
+import { AppProviders } from "context";
+// loadDevTools(() =>
 //   ReactDOM.render(
 //     <React.StrictMode>
-//       <AppProviders>
-//         <App />
-//       </AppProviders>
+//       <App />
 //     </React.StrictMode>,
 //     document.getElementById("root")
-//   );
-// });
+//   )
+// );
+
+loadDevTools(() => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <AppProviders>
+        <App />
+      </AppProviders>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+});
 // const root = ReactDOM.createRoot(
 //   document.getElementById("root") as HTMLElement
 // );
