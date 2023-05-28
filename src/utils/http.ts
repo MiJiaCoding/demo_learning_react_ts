@@ -9,7 +9,7 @@ interface Config extends RequestInit {
 }
 export const http = async (
   endpoint: string,
-  { data, token, headers, ...customConfig }: Config
+  { data, token, headers, ...customConfig }: Config = {} //默认参数 使得Config变成可选
 ) => {
   const config = {
     method: "GET",
@@ -51,6 +51,6 @@ export const http = async (
 
 export const useHttp = () => {
   const { user } = useAuth();
-  return ([endpoint, config]: [string, Config]) =>
+  return (...[endpoint, config]: Parameters<typeof http>) =>
     http(endpoint, { ...config, token: user?.token });
 };
