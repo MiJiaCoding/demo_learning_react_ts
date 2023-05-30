@@ -23,7 +23,7 @@ export const ProjectList = () => {
   const client = useHttp();
 
   useEffect(() => {
-    client("projects", { data: cleanObject(debouncedParam) }).then(setList);
+    client("projects", { data: cleanObject(debouncedParam) }).then(setList); //等价于这么写.then((value)=>setList(value));
     //   fetch(
     //     `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
     //     // ` http://localhost:3001/projects?${qs.stringify(
